@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "email": "user@example.com",
+      "password": "password123",
+      "id": 1
+    }
+  ],
+  "tasks": [
+    {
+      "text": "Learn React JS",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "text": "Build a CRUD App"
+    },
+    {
+      "id": "f090",
+      "text": "Teste"
+    }
+  ]
+}
