@@ -15,3 +15,7 @@ export const login = async ({ email, password }) => {
   const data = await response.json();
   localStorage.setItem('token', data.token);
 };
+
+export const getToken = () => {
+  return localStorage.getItem('token');
+};
