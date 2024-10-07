@@ -1,21 +1,20 @@
 // src/services/auth.js
-export const login = async ({ email, password }) => {
-  const response = await fetch('/api/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email, password }),
-  });
+import db from '../../db.json';
 
-  if (!response.ok) {
+export const login = async ({ email, password }) => {
+  const user = db.users.find(user => user.email === email && user.password === password);
+
+  if (!user) {
     throw new Error('Falha na autenticação');
   }
 
-  const data = await response.json();
-  localStorage.setItem('token', data.token);
+  localStorage.setItem('token', user.token);
 };
 
 export const getToken = () => {
   return localStorage.getItem('token');
+};
+
+export const logout = () => {
+  localStorage.removeItem('token');
 };
