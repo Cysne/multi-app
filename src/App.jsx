@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -9,6 +8,7 @@ import IPAddressFinder from './components/IPAddressFinder';
 import QRCodeGenerator from './components/QRCodeGenerator';
 import QuizApp from './components/QuizApp';
 import TodoApp from './components/TodoApp';
+import LanguageTranslator from './components/LanguageTranslator'; // Importe o componente
 import PrivateRoute from './components/PrivateRoute';
 
 const App = () => {
@@ -24,6 +24,7 @@ const App = () => {
       <Route path="/qrcode-generator" element={<QRCodeGenerator />} />
       <Route path="/quiz-app" element={<QuizApp />} />
       <Route path="/todo-app" element={<TodoApp />} />
+      <Route path="/language-translator" element={<LanguageTranslator />} /> {/* Adicione esta linha */}
     </Routes>
   );
 };
