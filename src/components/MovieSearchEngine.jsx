@@ -1,4 +1,3 @@
-// src/components/MovieSearchEngine.jsx
 import { useState } from 'react';
 import axios from 'axios';
 import { handleError } from '../utils/errorHandler';
@@ -59,8 +58,15 @@ const MovieSearchEngine = () => {
 
   const searchMovies = async () => {
     try {
+      console.log(`Searching for movies with query: ${query}`);
       const response = await axios.get(`http://www.omdbapi.com/?s=${query}&apikey=403abbfe`);
-      setMovies(response.data.Search);
+      console.log('API response:', response.data);
+      if (response.data.Response === "True") {
+        setMovies(response.data.Search);
+      } else {
+        console.error('Error from API:', response.data.Error);
+        alert(`Error: ${response.data.Error}`);
+      }
     } catch (error) {
       handleError(error);
     }
